@@ -1,0 +1,25 @@
+{
+  "name": "desafiofalabella",
+  "version": "1.0.0",
+  "description": "talentfest Laboratoria 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NatalyVerdugoNogue/desafioFalabella.git"
+  },
+  "keywords": [
+    "talenfest",
+    "laboratoria",
+    "2018",
+    "falabella"
+  ],
+  "author": "Mariel Evelyn Carolina Nataly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NatalyVerdugoNogue/desafioFalabella/issues"
+  },
+  "homepage": "https://github.com/NatalyVerdugoNogue/desafioFalabella#readme"
+}
