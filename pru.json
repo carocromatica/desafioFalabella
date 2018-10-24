@@ -1,0 +1,29 @@
+[
+  {
+    "Pais": "Chile",
+    "Periodo": "2017-08-01",
+    "Producto": "Samsung Galaxy S8 64gb / Iprotech",
+    "ValorUnidad": 461373,
+    "TipoMoneda": "CLP",
+    "Tienda": "IPROTECHCEL",
+    "Thumbnail": "http://mlc-s2-p.mlstatic.com/798825-MLC25552973750_042017-I.jpg"
+  },
+  {
+    "Pais": "Chile",
+    "Periodo": "2017-08-01",
+    "Producto": "Samsung Galaxy S7 Edge Duos / Iprotech",
+    "ValorUnidad": 358768,
+    "TipoMoneda": "CLP",
+    "Tienda": "IPROTECHCEL",
+    "Thumbnail": "http://mlc-s1-p.mlstatic.com/373811-MLC20634433954_032016-I.jpg"
+  },
+  {
+    "Pais": "Chile",
+    "Periodo": "2017-08-01",
+    "Producto": "Iphone 7 De 32gb / Iprotech",
+    "ValorUnidad": 478033,
+    "TipoMoneda": "CLP",
+    "Tienda": "IPROTECHCEL",
+    "Thumbnail": "http://mlc-s2-p.mlstatic.com/975605-MLC25061393843_092016-I.jpg"
+  }
+]
