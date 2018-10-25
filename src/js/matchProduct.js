@@ -24,6 +24,27 @@ const getdatamatch = (id) => {
 };
 
 
+// función que obtiene nickname del seller
+const getdataseller = (id) => {
+
+  return new Promise((resolve) => {
+    fetch(`https://api.mercadolibre.com/users/${id}`).then((response) => {
+
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('La llamada a la API falló');
+      };
+    }).then((respuestaJson) => {
+      resolve(respuestaJson);
+    })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
+};
+
+
 // función que realiza coincidencia desde producto ingresado con obtenidos en llamado API, retorna el con mayor match
 getProductmatch = (producto, resultados) => {
 
@@ -46,22 +67,22 @@ getProductmatch = (producto, resultados) => {
         intersection++;
         pairs2.splice(i, 1);
         break;
-      }
+      };
     });
     return intersection * 2 / union;
-  }
+  };
   const wordLetterPairs = (str) => {
     const pairs = str.toUpperCase().split(' ').map(letterPairs);
     return flattenDeep(pairs);
-  }
+  };
   const flattenDeep = (arr) => {
     return Array.isArray(arr) ? arr.reduce((a, b) => a.concat(flattenDeep(b)), []) : [arr];
-  }
+  };
   const letterPairs = (str) => {
     const pairs = [];
     for (let i = 0, max = str.length - 1; i < max; i++) pairs[i] = str.substring(i, i + 2);
     return pairs;
-  }
+  };
 
   // recorro arreglo desde API y busco match y guardo el mayor
   for (let index = 0; index < resultados.length; index++) {
@@ -72,12 +93,13 @@ getProductmatch = (producto, resultados) => {
       var dataML = {
         "nombreML": resultados[index].title,
         "precioML": resultados[index].price,
-        "match": similarity
+        "match": similarity,
+        "idseller": resultados[index].seller.id
       };
     };
-  }
+  };
   return dataML;
-}
+};
 
 
 // función controladora de lectura de producto ingresado y que lo escribe en firebase
@@ -87,13 +109,24 @@ const compareAndAddMatch = (id) => {
   let idProd = id.replace(/\//g, '');
 
   getdatamatch(producto).then(data => {
-    const dataML = getProductmatch(producto, data.results);
-    const firestore = firebase.firestore();
-    const settings = {
-      timestampsInSnapshots: true
-    };
-    firestore.settings(settings);
 
-    firestore.collection("products").doc(idProd).update(dataML);
+    const dataML = getProductmatch(producto, data.results);
+    getdataseller(dataML.idseller).then(elem => {
+
+      const datatoFirebase = {
+        "nombreML": dataML.nombreML,
+        "precioML": dataML.precioML,
+        "match": dataML.match,
+        "seller": elem.nickname
+      };
+
+      const firestore = firebase.firestore();
+      const settings = {
+        timestampsInSnapshots: true
+      };
+      firestore.settings(settings);
+
+      firestore.collection("products").doc(idProd).update(datatoFirebase);
+    });
   });
-}
+};
