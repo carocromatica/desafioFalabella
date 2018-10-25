@@ -17,6 +17,8 @@ body{
 
   border: #E0E0E0 solid 1px;
 
+  margin-top:15px;
+
 
 }
 
@@ -42,6 +44,7 @@ margin-left:25px;
 
 .selector{
   top:10px;
+
 }
 
 .nav_falabella{
@@ -78,7 +81,14 @@ margin-left:25px;
   .cuadrito{
 
     padding:5px;
-    margin-bottom: 10px;
+        margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+
+  .selector{
+    top:0px;
+  
   }
 
 }
