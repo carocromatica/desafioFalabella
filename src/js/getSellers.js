@@ -38,7 +38,7 @@ window.onload = () => {
 const printSellers = () => {
   const sellerList = document.getElementById('sellerListResultPlace');
   if (sellersOnly.length === 583){
-    console.log(sellersOnly);
+    // console.log(sellersOnly);
     sellersOnly.forEach(seller => {
       // let id = seller.Seller; 
       // console.log(id);
@@ -51,10 +51,13 @@ const printSellers = () => {
 const findSellerMatches = (id) => {
   // console.log(sellersOnly);
   // console.log(fullDataSellers2); 
+  const placeResult = document.getElementById('productSellerResultPlace');
   console.log(id);
   let matches = fullDataSellers2.forEach((element) => {
       if (element.Tienda === id) {
-        console.log(element);
+        console.log(element.Producto);
+        placeResult.innerHTML += `<p>${element.Producto}</p>
+        <button id=${element.Producto} onclick="showProduct(this.id)">Comparar</button>`
         return element;
       } else {
         console.log('no match');

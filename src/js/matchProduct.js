@@ -1,42 +1,56 @@
-const getdata = () => {
+// función que llama en API de ML a producto ingresado en filtro inicial
+const getdatamatch = (id) => {
 
-  let producto = "Samsung Galaxy S8 64gb / Iprotech"
-  let productoconc = producto.replace(/ /g, '+')
+  let producto = id;
+  let productoconc = producto.replace(/ /g, '+');
 
   return new Promise((resolve) => {
+
     fetch(`https://api.mercadolibre.com/sites/MLC/search?q=${productoconc}`).then((response) => {
 
       if (response.ok) {
         return response.json();
-
       } else {
         throw new Error('La llamada a la API falló');
-      }
+      };
 
     }).then((respuestaJson) => {
-      // let resultados = respuestaJson.results;
       resolve(respuestaJson);
-
-
-    }).catch((err) => {
-      console.error(err);
-    });
-  })
-}
-
-
-const pru = () => {
-  let producto = "Samsung Galaxy S8 64gb / Iprotech"
-  return getdata().then(data => {
-    getProduct(producto, data.results)
+    })
+      .catch((err) => {
+        console.error(err);
+      });
   });
+};
 
-}
 
-getProduct = (producto, resultados) => {
+// función que obtiene nickname del seller
+const getdataseller = (id) => {
+
+  return new Promise((resolve) => {
+    fetch(`https://api.mercadolibre.com/users/${id}`).then((response) => {
+
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('La llamada a la API falló');
+      };
+    }).then((respuestaJson) => {
+      resolve(respuestaJson);
+    })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
+};
+
+
+// función que realiza coincidencia desde producto ingresado con obtenidos en llamado API, retorna el con mayor match
+getProductmatch = (producto, resultados) => {
+
   let may = 0;
-  console.log('----', resultados);
 
+  // funciones que compara con funciones de librería "string-similarity", basado en coeficiente de Sorensen-Dice
   const compareTwoStrings = (str1, str2) => {
     if (!str1.length && !str2.length) return 1;
     if (!str1.length || !str2.length) return 0;
@@ -53,40 +67,66 @@ getProduct = (producto, resultados) => {
         intersection++;
         pairs2.splice(i, 1);
         break;
-      }
+      };
     });
     return intersection * 2 / union;
-  }
-
+  };
   const wordLetterPairs = (str) => {
     const pairs = str.toUpperCase().split(' ').map(letterPairs);
     return flattenDeep(pairs);
-  }
-
+  };
   const flattenDeep = (arr) => {
     return Array.isArray(arr) ? arr.reduce((a, b) => a.concat(flattenDeep(b)), []) : [arr];
-  }
-
+  };
   const letterPairs = (str) => {
     const pairs = [];
     for (let i = 0, max = str.length - 1; i < max; i++) pairs[i] = str.substring(i, i + 2);
     return pairs;
-  }
+  };
 
-
+  // recorro arreglo desde API y busco match y guardo el mayor
   for (let index = 0; index < resultados.length; index++) {
 
     let similarity = compareTwoStrings(producto, resultados[index].title);
     if (similarity > may) {
       may = similarity;
-      var cosa = {
-        "producto": resultados[index].title,
-        "precio": resultados[index].price,
-        "match": similarity
+      var dataML = {
+        "nombreML": resultados[index].title,
+        "precioML": resultados[index].price,
+        "match": similarity,
+        "idseller": resultados[index].seller.id
       };
     };
-  }
-  console.log(cosa);
-}
+  };
+  return dataML;
+};
 
-pru();
+
+// función controladora de lectura de producto ingresado y que lo escribe en firebase
+const compareAndAddMatch = (id) => {
+
+  let producto = id;
+  let idProd = id.replace(/\//g, '');
+
+  getdatamatch(producto).then(data => {
+
+    const dataML = getProductmatch(producto, data.results);
+    getdataseller(dataML.idseller).then(elem => {
+
+      const datatoFirebase = {
+        "nombreML": dataML.nombreML,
+        "precioML": dataML.precioML,
+        "match": dataML.match,
+        "seller": elem.nickname
+      };
+
+      const firestore = firebase.firestore();
+      const settings = {
+        timestampsInSnapshots: true
+      };
+      firestore.settings(settings);
+
+      firestore.collection("products").doc(idProd).update(datatoFirebase);
+    });
+  });
+};
