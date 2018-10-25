@@ -56,6 +56,31 @@ margin-left:25px;
   margin-top:10px;
 }
 
+/*Contenedores páginas*/
+#Productos-Destacados {
+  display: none;
+}
+
+#inicio {
+  display: block;
+}
+
+#Filtro-Productos {
+  display: none;
+}
+
+#Comparacion {
+  display: none;
+}
+
+#Filtro-sellers {
+  display: none;
+}
+
+#Productos-seller {
+  display: none;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
   
   .btn{
