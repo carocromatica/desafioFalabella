@@ -60,16 +60,39 @@ margin-left:25px;
   margin-top:10px;
 }
 
-#inicio{
-  background-image: url(../../img/apple-devices-artificial-flowers-business-196658.jpg);
-  background-size: cover;
+/*Contenedores páginas*/
+#Productos-Destacados {
+  display: none;
 }
+
+
+#inicio {
+  display: block;
+}
+
+#Filtro-Productos {
+  display: none;
+}
+
+#Comparacion {
+  display: none;
+}
+
+#Filtro-Sellers {
+  display: none;
+}
+
+#Productos-Seller {
+  display: none;
+}
+/*fin contenedores páginas*/
+
 
 .fondo {
   background: rgba(0, 0, 0, 0.8); /* Green background with 30% opacity */
   min-height:100vh;
-}
 
+}
 
 .fondo2{
   background: rgba(0, 0, 0, 0.609); /* Green background with 30% opacity */
