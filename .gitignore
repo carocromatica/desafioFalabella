@@ -63,6 +63,3 @@ node_modules/
 
 # dotenv environment variables file
 .env
-
-# carpeta node_modules
-node_modules/

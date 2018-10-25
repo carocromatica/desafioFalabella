@@ -1,9 +1,6 @@
 {
   "name": "desafiofalabella",
   "version": "1.0.0",
-  "engines": {
-    "node": "8"
-  },
   "description": "talentfest Laboratoria 2018",
   "main": "index.js",
   "scripts": {
@@ -24,12 +21,5 @@
   "bugs": {
     "url": "https://github.com/NatalyVerdugoNogue/desafioFalabella/issues"
   },
-  "homepage": "https://github.com/NatalyVerdugoNogue/desafioFalabella#readme",
-  "dependencies": {
-    "puppeteer": "^1.9.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2"
-  }
+  "homepage": "https://github.com/NatalyVerdugoNogue/desafioFalabella#readme"
 }
