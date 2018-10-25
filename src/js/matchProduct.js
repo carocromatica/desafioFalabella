@@ -104,9 +104,16 @@ getProductmatch = (producto, resultados) => {
 
 // función controladora de lectura de producto ingresado y que lo escribe en firebase
 const compareAndAddMatch = (id) => {
+  Porcent(id);
 
   let producto = id;
   let idProd = id.replace(/\//g, '');
+
+  const firestore = firebase.firestore();
+  const settings = {
+    timestampsInSnapshots: true
+  };
+  firestore.settings(settings);
 
   getdatamatch(producto).then(data => {
 
@@ -120,13 +127,55 @@ const compareAndAddMatch = (id) => {
         "seller": elem.nickname
       };
 
-      const firestore = firebase.firestore();
-      const settings = {
-        timestampsInSnapshots: true
-      };
-      firestore.settings(settings);
 
       firestore.collection("products").doc(idProd).update(datatoFirebase);
     });
+  });
+};
+
+
+// función para agregar porcentaje de cada precio
+const Porcent = (nombre) => {
+
+  let idProd = nombre.replace(/\//g, '');
+
+  const firestore = firebase.firestore();
+  const settings = {
+    timestampsInSnapshots: true
+  };
+  firestore.settings(settings);
+
+  var docRef = firestore.collection("products").doc(idProd);
+
+  docRef.get().then(function (doc) {
+
+    if (doc.exists) {
+
+      let PML = doc.data().precioML;
+      let PF = doc.data().valorOrigen
+      let PorcentF = (PML / PF);
+      let PorcentML = (PF / PML);
+
+      if (PorcentF > 1) {
+        PorcentF = 1
+      };
+
+      if (PorcentML > 1) {
+        PorcentML = 1
+      };
+
+      let dataPorcent = {
+        "PorFal": PorcentF,
+        "PorML": PorcentML
+      };
+
+      firestore.collection("products").doc(idProd).update(dataPorcent);
+
+    } else {
+      console.log("No such document!");
+    };
+
+  }).catch(function (error) {
+    console.log("Error getting document:", error);
   });
 };
