@@ -23,6 +23,28 @@
 </head>
 <body>
 
+
+  <section id="inicio" class="gris5 ">
+      <div class="fondo">
+
+          <div class="container">
+              <header class="row">
+                 <div class="col-12 col-md-6 offset-md-3">
+                   <img src="./img/img.svg" class="img-fluid">
+                 </div>
+               </header>
+               <sdiv class="row">
+                   <form class="col-12 col-md-6 offset-md-3">
+                       <div class="form-group ">
+                         <label for="busqueda">Ingresa producto o Seller</label>
+                         <input type="text" class="form-control" placeholder="Ingresa producto o Seller">
+                       </div>
+                       <button type="submit" class="btn cyan">Submit</button>
+                     </form>
+                   </div>
+                 </div>
+      </div>
+
   <section id="inicio" class="gris5">
       <div class="container">
          <header class="row">
@@ -30,17 +52,16 @@
               <img src="./img/img.svg" class="img-fluid">
             </div>
           </header>
-          <sdiv class="row">
+          <div class="row">
               <form class="col-12 col-md-6 offset-md-3">
                   <div class="form-group ">
                     <label for="busqueda">Ingresa producto o Seller</label>
-                    <input type="text" class="form-control" placeholder="Ingresa producto o Seller">
+                    <input id="input-element" type="text" class="form-control" placeholder="Ingresa producto o Seller">
                   </div>
-                  <button type="submit" class="btn cyan" onclick="mostrarProductosDestacados()">Submit</button>
+                  <button type="submit" class="btn cyan">Submit</button>
                 </form>
               </div>
             </div>
-
   </section>
   <section id="Productos-Destacados">
 
@@ -209,11 +230,11 @@
             </div>
 
           <ul class="list-group">
-              <li class="list-group-item">Cras justo odio <button class="float-right btn verde">Comparar</button></li>
-              <li class="list-group-item">Dapibus ac facilisis in<button class="float-right btn verde">Comparar</button></li>
-              <li class="list-group-item">Morbi leo risus<button class="float-right btn verde">Comparar</button></li>
-              <li class="list-group-item">Porta ac consectetur ac<button class="float-right btn verde">Comparar</button></li>
-              <li class="list-group-item">Vestibulum at eros<button class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhone X <button class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhone 4 <button class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhone 5<button class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhpne 8 plus<button class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhone 5 SE<button class="float-right btn verde">Comparar</button></li>
             </ul>
     
       </div>
@@ -261,30 +282,31 @@
                           </div>
                       </div>
 
-                      <div class="row cuadrito">
-                          <div class="col-md-2">
-                              <img src="./img/falabella_logo.png" class="img-fluid">
+                      <div class="row cuadrito centrado">
+                          <div class="col-md-1 col-4">
+                              <img src="./img/icon_falabella.png" class=" rounded-circle" height="40px">
                           </div>
-                          <div class="col-md-2">
-                              <img src="./img/1.jpg">
+                          <div class="col-md-2 col-4">
+                              <img class=" align-middle" src="./img/1.jpg">
                           </div>
-                          <div class="col-md-3 col-6">Samsung Galaxy S7 Edge Duos / Iprotech </div>
-                          <div class="col-md-3 col-6">Tienda</div>
-                          <div class="col-md-2">$299990</div>
+                          <div class="col-md-6">Samsung Galaxy S7 Edge Duos / Iprotech </div>
+                          
+                          <div class="col-md-3">$399990</div>
                       </div>
+
+                      </div>
+               
               
-              
-              
-                      <div class="row cuadrito">
-                          <div class="col-md-2">
-                              <img src="./img/mercado libre.png" class="img-fluid">
+                      <div class="row cuadrito centrado">
+                          <div class="col-md-1 col-4">
+                              <img src="./img/mercado libre.png" class=" rounded-circle" height="40px">
                           </div>
-                          <div class="col-md-2">
-                              <img src="./img/1.jpg">
+                          <div class="col-md-2 col-4">
+                              <img class=" align-middle" src="./img/1.jpg">
                           </div>
-                          <div class="col-md-3">Samsung Galaxy S7 Edge Duos / Iprotech </div>
-                          <div class="col-md-3">Tienda</div>
-                          <div class="col-md-2">$399990</div>
+                          <div class="col-md-6">Samsung Galaxy S7 Edge Duos / Iprotech </div>
+                          
+                          <div class="col-md-3">$399990</div>
                       </div>
 
                       <div class="row encabezados">
@@ -295,16 +317,17 @@
               
                       <div class="row cuadrito">
                           <div class="col-12">
-                            <div class="progress">
-                                  <div class="progress-bar progress-bar-striped gris4" role="progressbar" style="width: 90%" aria-valuenow="10" aria-valuemin="0"
-                             
-                                  aria-valuemax="100">1525</div>
+                              FALABELLA
+                              <span class="float-right rojo-txt"><b>$ 349990</b></span>
+                            <div class="progress"> 
+                                  <div class="progress-bar progress-bar-striped verde" role="progressbar" style="width: 90%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                               </div>
-                              
+                             COMPETENCIA
+                             <span class="float-right rojo-txt">$ 399990</span>
                               <div class="progress">
-                                  <div class="progress-bar progress-bar-striped verde" role="progressbar" style="width: 97%" aria-valuenow="25" aria-valuemin="0"
+                                   <div class="progress-bar progress-bar-striped gris4" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0"
                                       aria-valuemax="100"></div>
-                              </div>
+                              </div>  
 
                           </div>
                       </div>
@@ -313,7 +336,7 @@
               
 
         </section>
-        <section id="Filtro-sellers"><!-- INICIO NAV-->
+        <section id="Filtro-Sellers"><!-- INICIO NAV-->
           <nav class="navbar navbar-expand-lg  nav_falabella ">
               <div class="container">
                   <div class="collapse navbar-collapse">
@@ -363,7 +386,7 @@
                       </ul>
               
                 </div></section>
-        <section id="Productos-seller"><!-- INICIO NAV-->
+        <section id="Productos-Seller"><!-- INICIO NAV-->
           <nav class="navbar navbar-expand-lg  nav_falabella ">
               <div class="container">
                   <div class="collapse navbar-collapse">
@@ -415,15 +438,19 @@
                 </div></section>
 
 
-  <script src="src/js/main.js"></script>            
-  <!--js bootstrap-->
+        <!--js bootstrap-->
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
   crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
 <!--fin js bootstrap-->
+ <!-- js local -->
+ <script src="src/js/addProduct.js"></script>
+ <script src="src/js/autofill.js"></script>
+ <script src="src/js/getSellers.js"></script>
       
         </body>
       
