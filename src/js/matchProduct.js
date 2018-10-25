@@ -108,6 +108,12 @@ const compareAndAddMatch = (id) => {
   let producto = id;
   let idProd = id.replace(/\//g, '');
 
+  const firestore = firebase.firestore();
+  const settings = {
+    timestampsInSnapshots: true
+  };
+  firestore.settings(settings);
+
   getdatamatch(producto).then(data => {
 
     const dataML = getProductmatch(producto, data.results);
@@ -120,13 +126,53 @@ const compareAndAddMatch = (id) => {
         "seller": elem.nickname
       };
 
-      const firestore = firebase.firestore();
-      const settings = {
-        timestampsInSnapshots: true
-      };
-      firestore.settings(settings);
 
       firestore.collection("products").doc(idProd).update(datatoFirebase);
     });
   });
 };
+
+
+// const Porcent = (nombre) => {
+//   let idProd = nombre.replace(/\//g, '');
+
+
+//   const firestore = firebase.firestore();
+//   const settings = {
+//     timestampsInSnapshots: true
+//   };
+//   firestore.settings(settings);
+
+//   var docRef = firestore.collection("products").doc(idProd);
+//   docRef.get().then(function (doc) {
+//     if (doc.exists) {
+//       let PML = doc.data().precioML;
+//       let PF = doc.data().valorOrigen
+//       let PorcentF = (PML / PF);
+//       let PorcentML = (PF / PML);
+
+//       // if (PML > PF) {
+//       //   Porcent = {
+//       //     "porcentF": (PF / PML),
+//       //     "porcentML": 1
+//       //   }
+//       // }
+//       // if (PML <= PF) {
+//       //   Porcent = {
+//       //     "porcentF": 1,
+//       //     "porcentML": (PML / PF)
+//       //   }
+//       // }
+
+//       console.log(Porcent1, Porcent2);
+
+
+//     } else {
+//       // doc.data() will be undefined in this case
+//       console.log("No such document!");
+//     }
+//   }).catch(function (error) {
+//     console.log("Error getting document:", error);
+//   });
+
+// }
