@@ -1,4 +1,42 @@
-getProduct = () => {
+const getdata = () => {
+
+  let producto = "Samsung Galaxy S8 64gb / Iprotech"
+  let productoconc = producto.replace(/ /g, '+')
+
+  return new Promise((resolve) => {
+    fetch(`https://api.mercadolibre.com/sites/MLC/search?q=${productoconc}`).then((response) => {
+
+      if (response.ok) {
+        return response.json();
+
+      } else {
+        throw new Error('La llamada a la API falló');
+      }
+
+    }).then((respuestaJson) => {
+      // let resultados = respuestaJson.results;
+      resolve(respuestaJson);
+
+
+    }).catch((err) => {
+      console.error(err);
+    });
+  })
+}
+
+
+const pru = () => {
+  let producto = "Samsung Galaxy S8 64gb / Iprotech"
+  return getdata().then(data => {
+    getProduct(producto, data.results)
+  });
+
+}
+
+getProduct = (producto, resultados) => {
+  let may = 0;
+  console.log('----', resultados);
+
   const compareTwoStrings = (str1, str2) => {
     if (!str1.length && !str2.length) return 1;
     if (!str1.length || !str2.length) return 0;
@@ -36,17 +74,14 @@ getProduct = () => {
   }
 
 
-  let json = require('./datosPru.json');
-  const array = json;
-  let may = 0;
-  for (let index = 0; index < array.length; index++) {
+  for (let index = 0; index < resultados.length; index++) {
 
-    let similarity = compareTwoStrings('Samsung Galaxy S8 64gb / Iprotech', array[index].producto);
+    let similarity = compareTwoStrings(producto, resultados[index].title);
     if (similarity > may) {
       may = similarity;
       var cosa = {
-        "producto": array[index].producto,
-        "precio": array[index].precio,
+        "producto": resultados[index].title,
+        "precio": resultados[index].price,
         "match": similarity
       };
     };
@@ -54,4 +89,4 @@ getProduct = () => {
   console.log(cosa);
 }
 
-getProduct();
+pru();
