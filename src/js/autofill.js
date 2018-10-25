@@ -26,7 +26,8 @@ const getData = () => {
 
             // console.log('tiene' + element.name);
             let id = element.name.replace(/ /g, "");
-            showList.innerHTML += `<p id=${id} onclick="showProduct(this.id)">${element.name}</p>`
+            showList.innerHTML += `<p>${element.name}</p>
+            <button id=${id} onclick="showProduct(this.id)">comparar</button>`
             // result.push(nombres)
           } else { // console.log('nothing');
           }

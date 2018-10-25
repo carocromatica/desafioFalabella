@@ -1,0 +1,101 @@
+
+/**FONDOS*/
+
+.blanco{
+  background-color: white;
+}
+
+.verde{
+background-color: #AAd500;
+}
+
+.verde2{
+  background-color: #A0BE03
+}
+
+.cyan{
+  background-color: #75DDE9;
+
+}
+
+.rojo{
+  background-color: #F55E64;
+
+}
+
+.gris1{
+  background-color: #F6F6F6;
+
+}
+
+.gris2{
+  background-color:#E0E0E0;
+
+}
+
+.gris3{
+  background-color: #9B9B9B;
+}
+
+.gris4{
+  background-color: #707070
+}
+
+.gris5{
+  background-color: #1A1A1A;
+}
+
+.gris6{
+  background-color:#DDF7FA;
+}
+
+/**TEXTOS*/
+
+.blanco-txt{
+  color: white;
+}
+
+
+.verde-txt{
+ color: #AAd500;
+  }
+  
+  .verde2-txt{
+    color: #A0BE03
+  }
+  
+  .cyan-txt{
+   color: #75DDE9;
+  
+  }
+  
+  .rojo-txt{
+    color: #F55E64;
+  
+  }
+  
+  .gris1-txt{
+    color: #F6F6F6;
+  
+  }
+  
+  .gris2-txt{
+    color:#E0E0E0;
+  
+  }
+  
+  .gris3-txt{
+    color: #9B9B9B;
+  }
+  
+  .gris4-txt{
+    color: #707070
+  }
+  
+  .gris5-txt{
+    color: #1A1A1A;
+  }
+  
+  .gris6-txt{
+    color:#DDF7FA;
+  }
