@@ -108,6 +108,12 @@ const compareAndAddMatch = (id) => {
   let producto = id;
   let idProd = id.replace(/\//g, '');
 
+  const firestore = firebase.firestore();
+  const settings = {
+    timestampsInSnapshots: true
+  };
+  firestore.settings(settings);
+
   getdatamatch(producto).then(data => {
 
     const dataML = getProductmatch(producto, data.results);
@@ -120,11 +126,6 @@ const compareAndAddMatch = (id) => {
         "seller": elem.nickname
       };
 
-      const firestore = firebase.firestore();
-      const settings = {
-        timestampsInSnapshots: true
-      };
-      firestore.settings(settings);
 
       firestore.collection("products").doc(idProd).update(datatoFirebase);
     });
