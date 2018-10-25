@@ -79,7 +79,8 @@ const showProduct = (id) => {
     }
   });
   console.log(match);
-  compareAndAddMatch(match.nombre)
+  compareAndAddMatch(match.nombre);
+  Porcent(match.nombre);
   showProductPlace.innerHTML = `
     <img src="${match.url}">
     <p>Nombre ${match.nombre}</p>
