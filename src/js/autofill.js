@@ -1,6 +1,8 @@
 const firestore = firebase.firestore();
 let namesAndStore = [];
+let fullData = [];
 const showList = document.getElementById('placeList');
+const showProductPlace = document.getElementById('productResultPlace');
 
 const getData = () =>{
   const settings = {/* your settings... */ timestampsInSnapshots: true};
@@ -10,7 +12,7 @@ const getData = () =>{
   .then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
       formObject(doc);
-      
+      getFullData(doc);
     })
     let search = getInput();
     if (search !== null && search !== undefined && search.length > 1){
@@ -22,10 +24,12 @@ const getData = () =>{
         // let result = [];
         if (nombres.search(search) != -1){
 
-          console.log('tiene' + element.name);
-          showList.innerHTML += `<p>${element.name}</p>`
+          // console.log('tiene' + element.name);
+          let id= element.name.replace(/ /g, "");
+          showList.innerHTML += `<p id=${id} onclick="showProduct(this.id)">${element.name}</p>`
           // result.push(nombres)
-        } else { console.log('nothing');}
+        } else { // console.log('nothing');
+        }
       })
     } else { console.log('input vacio');
     }           
@@ -42,6 +46,17 @@ const formObject = (doc) => {
     "seller": doc.data().tienda
   });
 }; 
+const getFullData = (doc) => {
+  // console.log(doc.data().producto);
+  fullData.push({
+    "nombre": doc.data().producto,
+    "url": doc.data().image,
+    "seller": doc.data().tienda,
+    "precioFalabella": doc.data().valorOrigen
+  })
+  // console.log(fullData);
+  
+};
 
 const getInput = () =>{
   let searchOrigin = document.getElementById('searchInput').value;
@@ -50,3 +65,20 @@ const getInput = () =>{
     return search;
   };
 }}
+
+const showProduct = (id) => {
+  //console.log(id);
+  //console.log(fullData[0].nombre);
+  let match = fullData.find((element) => {
+    if (element.nombre.replace(/ /g, "") === id) {
+      return element;
+    }
+  });
+  console.log(match);
+  showProductPlace.innerHTML = `
+    <img src="${match.url}">
+    <p>Nombre ${match.nombre}</p>
+    <p>Tienda ${match.seller}</p>
+    <p>Precio ${match.precioFalabella}</p>
+  `;
+};
