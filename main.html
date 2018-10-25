@@ -23,26 +23,60 @@
 </head>
 <body>
 
-
   <section id="inicio" class="gris5 ">
       <div class="fondo">
 
+          <nav class="navbar navbar-expand-lg  nav_falabella ">
+              <div class="container">
+                  <div class="collapse navbar-collapse">
+                <img src="./img/falabella.png" alt="" srcset="">
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ">
+                      <a class="navbar-brand" href="#"></a>
+                 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ayuda</a>
+                    </li>
+                  </ul>
+                </div>
+        
+               
+              </div>
+              </nav>
+
+
           <div class="container">
               <header class="row">
-                 <div class="col-12 col-md-6 offset-md-3">
-                   <img src="./img/img.svg" class="img-fluid">
+                 <div class="col-12 col-md-4 offset-md-4 text-center">
+                   <img src="./img/hunter-search.png" class="img-fluid">
                  </div>
+
+                 <div class="col-12 col-md-6 offset-md-3 text-center blanco-txt">
+                   <h5>
+                      <i class="far fa-clock"></i>
+                     Optimiza tu tiempo de busqueda
+                   </h5>
+
+                   <h5>
+                      <i class="far fa-chart-bar"></i>
+                      Compara valores
+                   </h5>
+
+                    <h5>
+                        <i class="fas fa-shopping-basket"></i>
+                        fácil de usar
+                    </h5>
+                   <button id="ingresar" class="btn verde">INGRESAR</button>
+                  </div>
+
+
                </header>
-               <sdiv class="row">
-                   <form class="col-12 col-md-6 offset-md-3">
-                       <div class="form-group ">
-                         <label for="busqueda">Ingresa producto o Seller</label>
-                         <input type="text" class="form-control" placeholder="Ingresa producto o Seller">
-                       </div>
-                       <button type="submit" class="btn cyan">Submit</button>
-                     </form>
+               <div class="row">
+                   
                    </div>
                  </div>
+      </div>
   </section>
 
   <section id="Productos-Destacados">
@@ -57,7 +91,7 @@
             <ul class="navbar-nav mr-auto">
                 <a class="navbar-brand" href="#"></a>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sellers</a>
+                <a class="nav-link" href="#" onclick="mostrarFiltroSellers()">Sellers</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#">Ayuda</a>
@@ -73,7 +107,7 @@
               </div>
               <input type="text" class="form-control busqueda" placeholder="Producto o Seller" aria-label="Recipient's username" aria-describedby="button-addon2">
               <div class="input-group-append">
-                <button class="basenav btn " type="button" id="button-addon2">Button</button>
+                <button class="basenav btn " type="button" id="button-addon2">Buscar</button>
               </div>
             </div>
         </div>
@@ -95,7 +129,7 @@
             <div class="cuadrito shadow-sm">
               <img class="rounded mx-auto d-block" src="./img/1.jpg" alt="Card image cap">
               <h6 class="card-title">Samsung Galaxy S7 Edge Duos / Iprotech</h6>
-              <a href="#" class="btn verde gris5-txt col-12">Comparar precio</a>
+              <a href="#" class="btn verde gris5-txt col-12" onclick="mostrarComparacion()">Comparar precio</a>
             </div>
           </div>
       
@@ -103,7 +137,7 @@
             <div class="cuadrito shadow-sm">
               <img class="rounded mx-auto d-block" src="./img/2.jpg" alt="Card image cap">
               <h6 class="card-title">Samsung Galaxy S7 Edge Duos / Iprotech</h6>
-              <a href="#" class="btn verde gris5-txt col-12">Comparar precio</a>
+              <a href="#" class="btn verde gris5-txt col-12" onclick="mostrarComparacion()">Comparar precio</a>
             </div>
           </div>
       
@@ -112,7 +146,7 @@
             <div class="cuadrito shadow-sm">
               <img class="rounded mx-auto d-block" src="./img/1.jpg" alt="Card image cap">
               <h6 class="card-title">Samsung Galaxy S7 Edge Duos / Iprotech</h6>
-              <a href="#" class="btn verde gris5-txt col-12">Comparar precio</a>
+              <a href="#" class="btn verde gris5-txt col-12" onclick="mostrarComparacion()">Comparar precio</a>
             </div>
           </div>
       
@@ -121,7 +155,7 @@
             <div class="cuadrito shadow-sm">
               <img class="rounded mx-auto d-block" src="./img/1.jpg" alt="Card image cap">
               <h6 class="card-title">Samsung Galaxy S7 Edge Duos / Iprotech</h6>
-              <a href="#" class="btn verde gris5-txt col-12">Comparar precio</a>
+              <a href="#" class="btn verde gris5-txt col-12" onclick="mostrarComparacion()">Comparar precio</a>
             </div>
           </div>
       
@@ -130,7 +164,7 @@
             <div class="cuadrito shadow-sm">
               <img class="rounded mx-auto d-block" src="./img/1.jpg" alt="Card image cap">
               <h6 class="card-title">Samsung Galaxy S7 Edge Duos / Iprotech</h6>
-              <a href="#" class="btn verde gris5-txt col-12">Comparar precio</a>
+              <a href="#" class="btn verde gris5-txt col-12" onclick="mostrarComparacion()">Comparar precio</a>
             </div>
           </div>
       
@@ -139,7 +173,7 @@
             <div class="cuadrito shadow-sm">
               <img class="rounded mx-auto d-block" src="./img/1.jpg" alt="Card image cap">
               <h6 class="card-title">Samsung Galaxy S7 Edge Duos / Iprotech</h6>
-              <a href="#" class="btn verde gris5-txt col-12">Comparar precio</a>
+              <a href="#" class="btn verde gris5-txt col-12" onclick="mostrarComparacion()">Comparar precio</a>
             </div>
           </div>
       
@@ -148,7 +182,7 @@
             <div class="cuadrito shadow-sm">
               <img class="rounded mx-auto d-block" src="./img/1.jpg" alt="Card image cap">
               <h6 class="card-title">Samsung Galaxy S7 Edge Duos / Iprotech</h6>
-              <a href="#" class="btn verde gris5-txt col-12">Comparar precio</a>
+              <a href="#" class="btn verde gris5-txt col-12" onclick="mostrarComparacion()">Comparar precio</a>
             </div>
           </div>
       
@@ -157,7 +191,7 @@
             <div class="cuadrito shadow-sm">
               <img class="rounded mx-auto d-block" src="./img/1.jpg" alt="Card image cap">
               <h6 class="card-title">Samsung Galaxy S7 Edge Duos / Iprotech</h6>
-              <a href="#" class="btn verde gris5-txt col-12">Comparar precio</a>
+              <a href="#" class="btn verde gris5-txt col-12" onclick="mostrarComparacion()">Comparar precio</a>
             </div>
           </div>
       
@@ -196,7 +230,7 @@
           </div>
           <input type="text" class="form-control busqueda" placeholder="Producto o Seller" aria-label="Recipient's username" aria-describedby="button-addon2">
           <div class="input-group-append">
-            <button class="basenav btn " type="button" id="button-addon2">Button</button>
+            <button class="basenav btn " type="button" onclick="mostrarFiltroProductos()">Button</button>
           </div>
         </div>
     </div>
@@ -212,11 +246,11 @@
             </div>
 
           <ul class="list-group">
-              <li class="list-group-item">iPhone X <button class="float-right btn verde">Comparar</button></li>
-              <li class="list-group-item">iPhone 4 <button class="float-right btn verde">Comparar</button></li>
-              <li class="list-group-item">iPhone 5<button class="float-right btn verde">Comparar</button></li>
-              <li class="list-group-item">iPhpne 8 plus<button class="float-right btn verde">Comparar</button></li>
-              <li class="list-group-item">iPhone 5 SE<button class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhone X <button onclick="mostrarComparacion()" class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhone 4 <button onclick="mostrarComparacion()" class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhone 5<button onclick="mostrarComparacion()" class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhpne 8 plus<button onclick="mostrarComparacion()" class="float-right btn verde">Comparar</button></li>
+              <li class="list-group-item">iPhone 5 SE<button onclick="mostrarComparacion()" class="float-right btn verde">Comparar</button></li>
             </ul>
     
       </div>
@@ -249,7 +283,7 @@
                       </div>
                       <input type="text" class="form-control busqueda" placeholder="Producto o Seller" aria-label="Recipient's username" aria-describedby="button-addon2">
                       <div class="input-group-append">
-                        <button class="basenav btn " type="button" id="button-addon2">Button</button>
+                        <button class="basenav btn " type="button" id="button-addon2" onclick="mostrarFiltroProductos()">Button</button>
                       </div>
                     </div>
                 </div>
@@ -360,11 +394,11 @@
                       </div>
           
                     <ul class="list-group">
-                        <li class="list-group-item">Cras justo odio <button class="float-right">Comparar</button></li>
-                        <li class="list-group-item">Dapibus ac facilisis in<button class="float-right">Comparar</button></li>
-                        <li class="list-group-item">Morbi leo risus<button class="float-right">Comparar</button></li>
-                        <li class="list-group-item">Porta ac consectetur ac<button class="float-right">Comparar</button></li>
-                        <li class="list-group-item">Vestibulum at eros<button class="float-right">Comparar</button></li>
+                        <li class="list-group-item">Cras justo odio <button onclick="mostrarProductosSeller()" class="float-right">Comparar</button></li>
+                        <li class="list-group-item">Dapibus ac facilisis in<button onclick="mostrarProductosSeller()" class="float-right">Comparar</button></li>
+                        <li class="list-group-item">Morbi leo risus<button onclick="mostrarProductosSeller()" class="float-right">Comparar</button></li>
+                        <li class="list-group-item">Porta ac consectetur ac<button onclick="mostrarProductosSeller()" class="float-right">Comparar</button></li>
+                        <li class="list-group-item">Vestibulum at eros<button onclick="mostrarProductosSeller()" class="float-right">Comparar</button></li>
                       </ul>
               
                 </div></section>
@@ -422,6 +456,7 @@
 
         <!--js bootstrap-->
 
+        <script src="./src/js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -429,10 +464,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
   crossorigin="anonymous"></script>
 <!--fin js bootstrap-->
- <!-- js local -->
- <script src="src/js/addProduct.js"></script>
- <script src="src/js/autofill.js"></script>
- <script src="src/js/getSellers.js"></script>
       
         </body>
       
