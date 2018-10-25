@@ -52,19 +52,38 @@ const findSellerMatches = (id) => {
   // console.log(sellersOnly);
   // console.log(fullDataSellers2); 
   const placeResult = document.getElementById('productSellerResultPlace');
-  console.log(id);
+  // console.log(id);
   let matches = fullDataSellers2.forEach((element) => {
       if (element.Tienda === id) {
-        console.log(element.Producto);
+        // console.log(element.Producto);
+        let buttonID = element.Producto.replace(/ /g, "");
+        // let buttonID2 = buttonID.replace(/\//g, '');
         placeResult.innerHTML += `<p>${element.Producto}</p>
-        <button id=${element.Producto} onclick="showProduct(this.id)">Comparar</button>`
+        <button id=${buttonID} onclick="showProduct2(this.id)">Comparar</button>`
         return element;
       } else {
-        console.log('no match');
+        console.log('no match');  
       }
     })
   };
 
     
 
+  const showProduct2 = (id) => {
+
+    //console.log(id);
+    //console.log(fullData[0].nombre);
+    let match = fullDataSellers2.find((element) => {
+      if (element.Producto.replace(/ /g, "") === id) {
+        return element;
+      }
+    });
+    console.log(match);
+    showProductPlace.innerHTML = `
+      <img src="${match.Thumbnail}">
+      <p>Nombre ${match.Producto}</p>
+      <p>Tienda ${match.Tienda}</p>
+      <p>Precio ${match.ValorUnidad}</p>
+    `;
+  };
 
